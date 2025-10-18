@@ -3,7 +3,7 @@
 using namespace std;
 
 
-long long mod_pow(int base, int mod)
+long long mod_pow(long base, long exp, long mod)
 {
     // using proof that f(n+1) = f(n) (mod 10^n)
     long long result;
