@@ -19,9 +19,20 @@ long long mod_pow(long long base, long long exp, long long mod)
     return result;
 }
 
+// calulate power tower mod nE10
 long long graham_last_digits(int digits)
 {
-    long long result;
+    long long mod = pow(10, digits);
+    
+    // 3 up up (nth digits) mod nE10
+
+    long long result = 3;
+    for (int i = 1; i <= digits; i++)
+    {
+        cout << "3^" << result << " mod(" << mod << ") = ";
+        result = mod_pow(3, result, mod);
+        cout << result << endl;
+    }
     // call mod_pow in here
     return result;
 }
@@ -33,11 +44,10 @@ int main()
     cout << "how many digits: ";
     cin >> digits;
 
-    long long mod = digits;//pow(10, digits);
-    cout << "mod = " << mod << endl;
-    cout << "mod_pow of 4, 13 = " << mod_pow(4, 13, mod) << endl;
+    // cout << "mod_pow of 3, 13 = " << mod_pow(4, 13, mod) << endl;
 
-    cout << "last " << digits << " of grahams number: " << graham_last_digits(digits) << endl;
+    cout << "last " << digits << " of grahams number: " << endl; 
+    cout << graham_last_digits(digits) << endl;
     return 0;
     
 }
